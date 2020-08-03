@@ -29,7 +29,18 @@ router.put("/api/workouts/:id", (req, res) => {
     }).catch(err => {
         res.status(401).json(err);
       });
-})
+});
+
+router.get("/api/workouts/range", (req, res)=>{
+    Workout.find()
+    .then(dbWorkouts => {
+        res.json(dbWorkouts);
+    })
+    .catch(err => {
+        res.status(401).json(err);
+      });
+});
+
 
 
 // API Routes
